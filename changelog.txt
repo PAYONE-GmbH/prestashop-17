@@ -1,0 +1,6 @@
+== Changelog ==
+
+
+- v1.2.1
+    - Added new payment method "BS Payone - Secure Invoice"
+    - Added new feature to display clearing data in PDF invoices (new hook introduced)

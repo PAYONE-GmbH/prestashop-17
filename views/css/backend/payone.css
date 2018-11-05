@@ -1,0 +1,10 @@
+.bootstrap .btn.button-payone{
+    background-color: #00395a;
+    border-color: #00395a;
+    color: #fff;
+}
+.bootstrap .btn.button-payone:hover,
+.bootstrap .btn.button-payone:active{
+    background-color: #55b3df;
+    border-color: #55b3df;
+}
