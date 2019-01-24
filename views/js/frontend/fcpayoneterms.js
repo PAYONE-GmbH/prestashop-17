@@ -41,7 +41,7 @@ $(document).ready(function(){
      * @param oTermCheckbox
      */
     function fcPayoneCheckTerms(oTermCheckbox) {
-        var sState = oTermCheckbox.attr('checked');
+        var sState = oTermCheckbox.prop('checked');
         if ( sState == true || sState == 1 || sState == 'checked' ) {
             fcPayoneEnableSubmit();
         } else {

@@ -69,7 +69,7 @@ $_MODULE['<{fcpayone}prestashop>translations_e912e3734b233afeb1e39b891d64d928'] 
 $_MODULE['<{fcpayone}prestashop>translations_b5d39cc35537eec5856a194cd30c27a6'] = 'Unterzahlung (UNDERPAID)';
 $_MODULE['<{fcpayone}prestashop>translations_33a5c4433f86256a29992f952669ede9'] = 'Rücklastschrift (CANCELATION)';
 $_MODULE['<{fcpayone}prestashop>translations_a88de4dd4687f6803a130f2ae235b6ca'] = 'Rückerstattung (REFUND)';
-$_MODULE['<{fcpayone}prestashop>translations_c0725853c54cdb90af7a7e67db3fe594'] = 'Buchung (DEBIT)';
+$_MODULE['<{fcpayone}prestashop>translations_c0725853c54cdb90af7a7e67db3fe594'] = 'Gutschrift (DEBIT)';
 $_MODULE['<{fcpayone}prestashop>translations_9ad1bee221ac8fa94efccc39754dd7ef'] = 'Status des Mahnverfahrens (REMINDER)';
 $_MODULE['<{fcpayone}prestashop>translations_7d0c7b2ea63a83642d1f6fa441fb0393'] = 'Buchung auf Abrechnungskonto (VAUTHORIZATION)';
 $_MODULE['<{fcpayone}prestashop>translations_b0c6ea682a469eaf4b577184af0af1e0'] = 'Abrechnung eines Abrechnungskontos (VSETTLEMENT)';

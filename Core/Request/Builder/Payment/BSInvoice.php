@@ -35,6 +35,7 @@ class BSInvoice extends Base
         $this->setParam('narrative_text', $this->getPayment()->getTitle());
         $this->setUserToRequest();
         $this->setPaymentDataToRequest();
+        $this->setItemsToRequest();
     }
 
     /**

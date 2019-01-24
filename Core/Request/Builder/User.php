@@ -221,6 +221,7 @@ class User extends Base
         $this->setParam('firstname', $oInvoiceAddress->firstname);
         $this->setParam('lastname', $oInvoiceAddress->lastname);
         $this->setParam('company', $oInvoiceAddress->company);
+        $this->setParam('businessrelation', trim($oInvoiceAddress->company) == '' ? 'b2c' : 'b2b');
         $this->setParam('street', $oInvoiceAddress->address1);
         $this->setParam('addressaddition', $oInvoiceAddress->address2);
         $this->setParam('zip', $oInvoiceAddress->postcode);
@@ -244,7 +245,7 @@ class User extends Base
         if ($sUserId) {
             $this->setParam('userid', $sUserId);
         }
-        $this->setParam('customerid', $oInvoiceAddress->id_customer);
+        //$this->setParam('customerid', $oInvoiceAddress->id_customer);
         $this->setParam('language', $oLanguage->iso_code);
         $this->setParam('personalid', '');
         $this->setParam('gender', $this->getGender());
