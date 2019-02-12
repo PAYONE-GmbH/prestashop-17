@@ -60,6 +60,9 @@ class Capture extends Base
     {
         parent::build();
         $this->setParam('request', 'capture');
+        if ($this->getPayment()->getId() == 'bsinvoice') {
+            $this->setAuthForPOVToRequest();
+        }
     }
 
     /**

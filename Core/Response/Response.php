@@ -155,6 +155,20 @@ class Response
         return false;
     }
 
+    public function isValidMandate()
+    {
+        if (!$this->getResponse()) {
+            return false;
+        }
+
+        $oValidation = new ResponseValidation();
+        $blValid = $oValidation->validateMandateApprovedAndActive($this->getResponse());
+        if ($blValid) {
+            return true;
+        }
+        return false;
+    }
+
     /**
      * Process mandate getfile response
      *

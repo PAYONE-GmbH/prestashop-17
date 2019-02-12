@@ -121,6 +121,9 @@ class FcPayonePaymentDebitModuleFrontController extends FcPayonePaymentModuleFro
             $oResponse = new Response();
             $oResponse->setResponse($oRequest->getResponse());
             $oResponse->processMandateManage();
+            if ($oResponse->isValidMandate()) {
+                return true;
+            }
             return false;
         } elseif ($aFormData && (!isset($aFormData['mandate_accepted']) || $aFormData['mandate_accepted'] == '')) {
             Registry::getErrorHandler()->setError(

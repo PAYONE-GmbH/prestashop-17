@@ -4,3 +4,9 @@
 - v1.2.1
     - Added new payment method "BS Payone - Secure Invoice"
     - Added new feature to display clearing data in PDF invoices (new hook introduced)
+
+- v2.0.0
+    - PS 1.7 compatibility
+    - Fixes "BS Payone - Secure Invoice"
+    - Improvement "Global status mapping"
+    - Minor improvements "Lastschrift / SEPA" & general request handling

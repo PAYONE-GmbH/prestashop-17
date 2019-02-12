@@ -45,7 +45,7 @@ class Debit extends Base
         $aPaymentInfo = $this->getForm();
         if ($aPaymentInfo['bankdatatype'] == 1) {
             $this->setParam('iban', $aPaymentInfo['iban']);
-            $this->setParam('bic', $aPaymentInfo['bic']);
+            $this->setParam('bic', isset($aPaymentInfo['bic']) ? $aPaymentInfo['bic'] : '');
         } else {
             $this->setParam('bankaccount', $aPaymentInfo['bankaccount']);
             $this->setParam('bankcode', $aPaymentInfo['bankcode']);

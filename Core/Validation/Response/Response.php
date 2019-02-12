@@ -74,6 +74,16 @@ class Response extends \Payone\Validation\Base
         return $blNoErrors;
     }
 
+    public function validateMandateApprovedAndActive($aResponse)
+    {
+        if (isset($aResponse['status']) && $aResponse['status'] == 'APPROVED') {
+            if (isset($aResponse['mandate_status']) && $aResponse['mandate_status'] == 'active') {
+                return true;
+            }
+        }
+        return false;
+    }
+
     /**
      * Checks for error and sets payone
      * customermessage to output

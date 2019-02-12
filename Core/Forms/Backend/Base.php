@@ -347,6 +347,26 @@ class Base
     }
 
     /**
+     * Returns order states formatted for form select
+     * only show non module order states
+     *
+     * @return array
+     */
+    protected function getOrderStates()
+    {
+        $aOrderStates = array();
+        $aRawOrderStates = \OrderState::getOrderStates(\Context::getContext()->language->id);
+        $aOrderStates[] = array('id_option' => -1, 'name' => '--');
+        foreach ($aRawOrderStates as $aOrderState) {
+            if (!$aOrderState['module_name']) {
+                $aOrderStates[] = array('id_option' => $aOrderState['id_order_state'], 'name' => $aOrderState['name']);
+            }
+        }
+
+        return $aOrderStates;
+    }
+
+    /**
      * Returns payment form title
      *
      * @return string

@@ -137,6 +137,7 @@ class Status
 
     /**
      * Returns order state based on transaction configuration
+     * First: will try to get payment method specific status, otherwise will try to get global config
      *
      * @param $aOrderData
      * @return mixed
@@ -146,17 +147,26 @@ class Status
         $aStates = \Payone\Base\Transaction::getStates();
         $sAction = $this->getAction();
         $sOrderStateIdent = null;
+        $sOrderStateIdentGlobal = null;
         foreach ($aStates as $sState) {
             if (\Tools::strtolower($sAction) == \Tools::strtolower($sState)) {
                 $sOrderStateIdent = 'FC_PAYONE_PAYMENT_TRANSACTION_MAPPING_'
                     . \Tools::strtoupper($aOrderData['paymentid']) . '_'
+                    . \Tools::strtoupper($sState);
+                $sOrderStateIdentGlobal = 'FC_PAYONE_PAYMENT_TRANSACTION_MAPPING_TRANSACTIONSTATEMAPPING_'
                     . \Tools::strtoupper($sState);
                 break;
             }
         }
         $iOrderState = \Configuration::get($sOrderStateIdent);
         if ($iOrderState) {
-            return $iOrderState;
+            if ($iOrderState > 0) {
+                return $iOrderState;
+            }
+        }
+        $iOrderStateGlobal = \Configuration::get($sOrderStateIdentGlobal);
+        if ($iOrderStateGlobal) {
+            return $iOrderStateGlobal;
         }
     }
 

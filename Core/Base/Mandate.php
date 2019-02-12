@@ -286,7 +286,9 @@ class Mandate
             $this->setMandateText(urldecode($aMandate['mandate_text']));
             $this->setCreditorIdent($aMandate['creditor_identifier']);
             $this->setIban($aMandate['iban']);
-            $this->setBic($aMandate['bic']);
+            if (isset($aMandate['bic'])) {
+                $this->setBic($aMandate['bic']);
+            }
             return true;
         }
     }

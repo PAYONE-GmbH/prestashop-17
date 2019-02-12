@@ -140,6 +140,7 @@ class Backend extends Base
         $aForms = array_merge(
             $this->getConnectionForm(),
             $this->getTransactionForwardingForm(),
+            $this->getTransactionStateMappingForm(),
             $this->getMiscForm()
         );
         return $aForms;
@@ -186,6 +187,21 @@ class Backend extends Base
         $oMiscForm = new \Payone\Forms\Backend\General\Misc();
         if ($oMiscForm) {
             $aForm[$oMiscForm->getTitle()] = $oMiscForm;
+        }
+        return $aForm;
+    }
+
+    /**
+     * Returns transaction state mapping form
+     *
+     * @return array
+     */
+    protected function getTransactionStateMappingForm()
+    {
+        $aForm = array();
+        $oTransactionStateMappingForm = new \Payone\Forms\Backend\General\TransactionStateMapping();
+        if ($oTransactionStateMappingForm) {
+            $aForm[$oTransactionStateMappingForm->getTitle()] = $oTransactionStateMappingForm;
         }
         return $aForm;
     }

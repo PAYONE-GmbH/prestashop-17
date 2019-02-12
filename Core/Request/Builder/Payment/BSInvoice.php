@@ -32,6 +32,8 @@ class BSInvoice extends Base
     public function build()
     {
         parent::build();
+        $this->setParam('portalid', \Configuration::get('FC_PAYONE_CONNECTION_POV_PORTALID')); // Specific portal ID for BSInvoice needed
+        $this->setParam('key', md5(\Configuration::get('FC_PAYONE_CONNECTION_POV_PORTALKEY'))); // Specific portal key for BSInvoice needed
         $this->setParam('narrative_text', $this->getPayment()->getTitle());
         $this->setUserToRequest();
         $this->setPaymentDataToRequest();
@@ -45,4 +47,5 @@ class BSInvoice extends Base
     {
         $this->setParam('clearingsubtype', $this->getPayment()->getSubClearingType());
     }
+
 }

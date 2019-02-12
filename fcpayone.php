@@ -88,7 +88,7 @@ class FcPayone extends \PaymentModule
             Shop::setContext(Shop::CONTEXT_ALL);
         }
 
-        if (version_compare(_PS_VERSION_, '1.7.0', '<')) {
+        if (version_compare(_PS_VERSION_, '1.7.0', '<') || Tools::substr(_PS_VERSION_, 0, 3) == '1.6') {
             $this->registerHook('payment');
             $this->registerHook('displayPaymentEU');
         }

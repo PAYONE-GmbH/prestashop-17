@@ -65,6 +65,9 @@ class Debit extends Base
         if ($this->getPayment()->isItemsRequiredInDebitRequest()) {
             $this->setItemsFromFirstRequestToRequest();
         }
+        if ($this->getPayment()->getId() == 'bsinvoice') {
+            $this->setAuthForPOVToRequest();
+        }
     }
 
     /**

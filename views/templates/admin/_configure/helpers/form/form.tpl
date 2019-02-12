@@ -23,6 +23,18 @@
 *}
 
 {extends file="helpers/form/form.tpl"}
+
+{block name="input_row"}
+	{if isset($input.headline)}
+		<div class="form-group">
+			<div class="col-lg-9 col-lg-push-3">
+				<strong>{$input.headline}</strong>
+			</div>
+		</div>
+	{/if}
+	{$smarty.block.parent}
+{/block}
+
 {block name="field"}
 	{if $input.type == 'file_lang'}
 		<div class="col-lg-9">

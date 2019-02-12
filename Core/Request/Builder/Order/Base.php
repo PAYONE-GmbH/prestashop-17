@@ -142,6 +142,15 @@ class Base extends \Payone\Request\Builder\Base
     }
 
     /**
+     *
+     */
+    protected function setAuthForPOVToRequest()
+    {
+        $this->setParam('portalid', \Configuration::get('FC_PAYONE_CONNECTION_POV_PORTALID')); // Specific portal ID for BSInvoice needed
+        $this->setParam('key', md5(\Configuration::get('FC_PAYONE_CONNECTION_POV_PORTALKEY'))); // Specific portal key for BSInvoice needed
+    }
+
+    /**
      * Sets order data to request
      */
     protected function setOrderDataToRequest()

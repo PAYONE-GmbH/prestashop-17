@@ -49,7 +49,9 @@ class Debit extends Base
 
         if ($aData['bankdatatype'] == 1) {
             $this->validateIban($aData['iban']);
-            $this->validateBic($aData['bic']);
+            if (isset($aData['bic'])) {
+                $this->validateBic($aData['bic']);
+            }
         } else {
             $this->validateBankAccount($aData['bankaccount']);
             $this->validateBankCode($aData['bankcode']);

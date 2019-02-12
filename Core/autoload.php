@@ -78,6 +78,7 @@ if (count($aFcPayonePayments) > 0) {
     $aFcPayoneAutoloadCoreClasses[] = 'Forms/Backend/Base.php';
     $aFcPayoneAutoloadCoreClasses[] = 'Forms/Backend/General/Connection.php';
     $aFcPayoneAutoloadCoreClasses[] = 'Forms/Backend/General/TransactionForwarding.php';
+    $aFcPayoneAutoloadCoreClasses[] = 'Forms/Backend/General/TransactionStateMapping.php';
     $aFcPayoneAutoloadCoreClasses[] = 'Forms/Backend/General/Misc.php';
     $aFcPayoneAutoloadCoreClasses[] = 'Forms/Backend/Payment/Base.php';
     $aFcPayoneAutoloadCoreClasses[] = 'Forms/Backend/Order.php';
