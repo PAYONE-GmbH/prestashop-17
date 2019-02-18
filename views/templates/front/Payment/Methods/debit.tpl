@@ -152,10 +152,11 @@
                         <sup>*</sup></label>
                     <div class="col-lg-5">
                         <div class="checkbox">
-                            <label>
-                                <input class="form-control js-payone-validate-input" type="checkbox"
-                                       name="fcpayone_form[mandate_accepted]" value="1"><br/>
-                            </label>
+                            <span class="custom-checkbox">
+                                <input class="js-payone-validate-input" type="checkbox"
+                                   name="fcpayone_form[mandate_accepted]" value="1">
+                                <span><i class="material-icons rtl-no-flip checkbox-checked">&#xE5CA;</i></span>
+                            </span>
                         </div>
                     </div>
                 {else}
