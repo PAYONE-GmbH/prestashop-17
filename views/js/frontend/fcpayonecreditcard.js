@@ -58,6 +58,7 @@ var config = {
         }
     }
 };
+var hasCvC = false;
 
 /**
  * Adds pseudocard pan and truncatedcardpan to form
@@ -65,7 +66,6 @@ var config = {
  * @param oResponse
  */
 function fcPayoneCheckCallback(oResponse) {
-    console.debug(oResponse);
     if (oResponse.status === "VALID" && fcPayoneValidateCardExpireDate(oResponse)) {
         var oForm = $('.js-payone-payment-submit').parents('form');
         oForm.find('input[name="fcpayone_form[pseudocardpan]"]').val(oResponse.pseudocardpan);
@@ -123,11 +123,13 @@ function fcPayoneValidateCardExpireDate(response) {
  */
 function fcPayoneCheckForCvC() {
     if ( $('#cardcvc2').length > 0 ) {
+        hasCvC = true;
         var cardcvc2 =  {
             selector: "cardcvc2", // put name of your div-container here
             type: "password", // select(default), text, password, tel
             style: "font-size: 1em; border: 1px solid #d6d4d4;",
             size: "4",
+            length: { "A": 4, "V": 3, "M": 3, "J": 0},
             maxlength: "4",
             iframe: {
                 width: "100%"
@@ -189,11 +191,14 @@ $(document).ready(function () {
         oIframe.setCardType($(this).val());
         fcPayoneSetSubPayment($(this));
     });
+    setTimeout(function() { $('#cardtype').trigger('change'); }, 1000);
     $('.js-payone-payment-submit').on('click', function (e) {
         e.preventDefault();
         if (oIframe.isComplete()) {
-            oIframe.creditCardCheck('fcPayoneCheckCallback'); // Perform "CreditCardCheck" to create and get a
-            // PseudoCardPan; then call your function "checkCallback"
+            if ((hasCvC && oIframe.isCvcComplete()) || !hasCvC) {
+                oIframe.creditCardCheck('fcPayoneCheckCallback'); // Perform "CreditCardCheck" to create and get a
+                // PseudoCardPan; then call your function "checkCallback"
+            }
         } else {
             fcPayoneSetErrorMessage(oConfigObject.data('validation-fields-error'));
         }
