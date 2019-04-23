@@ -129,7 +129,7 @@ function fcPayoneCheckForCvC() {
             type: "password", // select(default), text, password, tel
             style: "font-size: 1em; border: 1px solid #d6d4d4;",
             size: "4",
-            length: { "A": 4, "V": 3, "M": 3, "J": 0},
+            length: { "V": 3, "M": 3, "A": 4, "D": 3, "J": 3, "O": 3, "P": 3, "U": 3 },
             maxlength: "4",
             iframe: {
                 width: "100%"
