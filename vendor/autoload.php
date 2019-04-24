@@ -40,7 +40,7 @@
  */
 $aFcPayonePayments = array();
 $aFcPayoneSubPaymentBaseNames = array();
-$sFcPayoneAutoloadBaseDir = _PS_MODULE_DIR_ . 'fcpayone/Core/';
+$sFcPayoneAutoloadBaseDir = _PS_MODULE_DIR_ . 'fcpayone/vendor/';
 if (file_exists($sFcPayoneAutoloadBaseDir . 'Payment/Payment.php')) {
     require_once $sFcPayoneAutoloadBaseDir . 'Payment/Payment.php';
     if (class_exists('Payone\Payment\Payment')) {

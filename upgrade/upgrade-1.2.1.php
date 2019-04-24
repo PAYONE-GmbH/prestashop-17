@@ -21,7 +21,6 @@
  * @link      http://www.payone.de
  */
 
-
 if (!defined('_PS_VERSION_')) {
     exit;
 }

@@ -25,7 +25,7 @@ if (!defined('_PS_VERSION_')) {
     exit;
 }
 
-require_once _PS_MODULE_DIR_ . 'fcpayone/Core/autoload.php';
+require_once _PS_MODULE_DIR_ . 'fcpayone/vendor/autoload.php';
 
 class FcPayone extends \PaymentModule
 {
@@ -785,7 +785,8 @@ class FcPayone extends \PaymentModule
             $this->context->smarty->assign('usage', $aOrderData['txid']);
             return $this->display(
                 $this->fcGetPayoneHelper()->getModulePath(),
-                'views/templates/hook/admin/displayPDFInvoice.tpl');
+                'views/templates/hook/admin/displayPDFInvoice.tpl'
+            );
         }
     }
 }
