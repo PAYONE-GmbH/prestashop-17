@@ -71,7 +71,7 @@
                    class="form-control-label col-lg-4">{$oFcPayoneTranslator->translate('FC_PAYONE_FRONTEND_CREDITCARD_EXPIRE')|escape:'html':'UTF-8'}
                 <sup>*</sup></label>
             <div class=" inputIframe" id="expireInput">
-                <span class="col-lg-1" id="cardexpiremonth" data-iframe-height="42px" data-css="background: #f1f1f1; color: #7a7a7a; border: 1px solid rgba(0,0,0,.25); padding: .5rem 1rem; width: 60px; font-size: 1rem; line-height: 1.25"></span>
+                <span class="col-lg-2" id="cardexpiremonth" data-iframe-height="42px" data-css="background: #f1f1f1; color: #7a7a7a; border: 1px solid rgba(0,0,0,.25); padding: .5rem 1rem; width: 100px; font-size: 1rem; line-height: 1.25"></span>
                 <span class="col-lg-3" id="cardexpireyear" data-iframe-height="42px" data-css="background: #f1f1f1; color: #7a7a7a; border: 1px solid rgba(0,0,0,.25); padding: .5rem 1rem; width: 120px; font-size: 1rem; line-height: 1.25"></span>
             </div>
         </div>
