@@ -51,7 +51,7 @@ class Base extends \Payone\Forms\Frontend\Base
     {
         $this->getSmarty()->assign(
             'sFcPayoneValidationUrl',
-            $this->getHelper()->getModuleUrl() . 'Core/Validation/Ajax.php'
+            $this->getHelper()->getModuleUrl() . 'vendor/Validation/Ajax.php'
         );
     }
 
