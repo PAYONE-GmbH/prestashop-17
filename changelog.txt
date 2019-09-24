@@ -10,3 +10,11 @@
     - Fixes "BS Payone - Secure Invoice"
     - Improvement "Global status mapping"
     - Minor improvements "Lastschrift / SEPA" & general request handling
+
+- v2.0.1
+    - Fix "Giropay"
+    - Adaptions translations
+    - Logo change
+
+- v2.0.2
+    - Fix possible rounding error

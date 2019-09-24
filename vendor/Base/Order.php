@@ -324,7 +324,7 @@ class Order
             $aRow = \Db::getInstance()->getRow($sQ);
             if (isset($aRow['request'])) {
                 $oRequest = \Tools::jsonDecode($aRow['request']);
-                return (int)$oRequest->amount;
+                return (float)$oRequest->amount;
             }
         }
         return 0;
