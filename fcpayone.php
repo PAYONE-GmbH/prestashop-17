@@ -36,7 +36,7 @@ class FcPayone extends \PaymentModule
     {
         $this->name = 'fcpayone';
         $this->tab = 'payments_gateways';
-        $this->version = '2.0.2';
+        $this->version = '2.0.3';
         if (!defined('_FCPAYONE_VERSION_')) {
             define('_FCPAYONE_VERSION_', $this->version);
         }
