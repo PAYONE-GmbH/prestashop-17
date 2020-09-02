@@ -144,8 +144,11 @@ class Payment
             $aClassNames = array();
             $aBaseNames = self::getPaymentMethodBaseNames();
             foreach ($aBaseNames as $sName) {
-                if (count(self::getSubPaymentMethodBaseNames($sName)) > 0) {
-                    $sName .= '\\' . $sName;
+                $subPaymentMethodBaseNames = self::getSubPaymentMethodBaseNames($sName);
+                if (!is_null($subPaymentMethodBaseNames)) {
+                    if (count($subPaymentMethodBaseNames) > 0) {
+                        $sName .= '\\' . $sName;
+                    }
                 }
                 $aClassNames[] = 'Payone\Payment\Methods\\' . $sName;
             }
