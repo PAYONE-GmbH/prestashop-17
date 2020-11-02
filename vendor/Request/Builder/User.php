@@ -230,7 +230,9 @@ class User extends Base
         $this->setState($oCountry, $oInvoiceAddress);
         $this->setParam('email', $oCustomer->email);
         $this->setParam('telephonenumber', $this->getPhoneNumber());
-        $this->setParam('birthday', str_replace('-', '', $oCustomer->birthday));
+        if ($oCustomer->birthday != '' && $oCustomer->birthday != '0000-00-00') {
+            $this->setParam('birthday', str_replace('-', '', $oCustomer->birthday));
+        }
         $this->setParam('vatid', $oInvoiceAddress->vat_number);
     }
 
