@@ -16,7 +16,7 @@
  * PHP version 5
  *
  * @author    patworx multimedia GmbH <service@patworx.de>
- * @copyright 2003 - 2018 BS PAYONE GmbH
+ * @copyright 2003 - 2020 BS PAYONE GmbH
  * @license   <http://www.gnu.org/licenses/> GNU Lesser General Public License
  * @link      http://www.payone.de
  */
@@ -53,7 +53,7 @@ class Helper
      */
     public function getModuleCorePath()
     {
-        return $this->getModulePath() . 'Core';
+        return $this->getModulePath() . 'vendor';
     }
 
     /**

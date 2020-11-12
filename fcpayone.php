@@ -16,7 +16,7 @@
  * PHP version 5
  *
  * @author    patworx multimedia GmbH <service@patworx.de>
- * @copyright 2003 - 2018 BS PAYONE GmbH
+ * @copyright 2003 - 2020 BS PAYONE GmbH
  * @license   <http://www.gnu.org/licenses/> GNU Lesser General Public License
  * @link      http://www.payone.de
  */
@@ -36,7 +36,7 @@ class FcPayone extends \PaymentModule
     {
         $this->name = 'fcpayone';
         $this->tab = 'payments_gateways';
-        $this->version = '2.0.5';
+        $this->version = '2.0.6';
         if (!defined('_FCPAYONE_VERSION_')) {
             define('_FCPAYONE_VERSION_', $this->version);
         }

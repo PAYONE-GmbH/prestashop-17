@@ -16,7 +16,7 @@
  * PHP version 5
  *
  * @author    patworx multimedia GmbH <service@patworx.de>
- * @copyright 2003 - 2018 BS PAYONE GmbH
+ * @copyright 2003 - 2020 BS PAYONE GmbH
  * @license   <http://www.gnu.org/licenses/> GNU Lesser General Public License
  * @link      http://www.payone.de
  */
@@ -131,6 +131,7 @@ if (count($aFcPayonePayments) > 0) {
         $aFcPayoneAutoloadCoreClasses[] = 'Validation/Payment/' . $sPaymentMethod . '.php';
     }
     $aFcPayoneAutoloadCoreClasses[] = 'Validation/Validation.php';
+    $aFcPayoneAutoloadCoreClasses[] = 'Validation/ValidationAjax.php';
     $aFcPayoneAutoloadCoreClasses[] = 'Validation/Request/Request.php';
     $aFcPayoneAutoloadCoreClasses[] = 'Validation/Response/Response.php';
 

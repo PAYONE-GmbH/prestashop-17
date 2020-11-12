@@ -21,43 +21,21 @@
  * @link      http://www.payone.de
  */
 
-namespace Payone\Payment\Methods;
+use Payone\Validation\ValidationAjax;
 
-class AdvancePayment extends Base
+class FcPayoneAjaxModuleFrontController extends ModuleFrontController
 {
 
-    /**
-     * ID
-     *
-     * @var string
-     */
-    protected $sId = 'advancepayment';
+    public function postProcess()
+    {
+        if (\Tools::getValue('payone_secure_key') != $this->module->secure_key) {
+            echo \Tools::jsonEncode(array('errorMessages' => array('Secure key is not valid!')));
+            exit;
+        }
 
-    /**
-     * Clearing type
-     *
-     * @var string
-     */
-    protected $sClearingType = 'vor';
+        $oValidation = new ValidationAjax();
+        $oValidation->validate();
+        exit;
+    }
 
-    /**
-     * Available request type
-     *
-     * @var array
-     */
-    protected $aRequestTypes = array(Base::REQUEST_PREAUTH);
-
-    /**
-     * Returns account settlement possiblity
-     *
-     * @var bool
-     */
-    protected $blAllowAccountSettlement = true;
-
-    /**
-     * True if bank data is required for debit request
-     *
-     * @var bool
-     */
-    protected $blNeedBankDataForDebit = true;
 }

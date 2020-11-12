@@ -16,23 +16,14 @@
  * PHP version 5
  *
  * @author    patworx multimedia GmbH <service@patworx.de>
- * @copyright 2003 - 2018 BS PAYONE GmbH
+ * @copyright 2003 - 2020 BS PAYONE GmbH
  * @license   <http://www.gnu.org/licenses/> GNU Lesser General Public License
  * @link      http://www.payone.de
  */
 
-include_once(dirname(__FILE__) . '/../../../../config/config.inc.php');
-include_once(dirname(__FILE__) . '/../../../../init.php');
-require_once dirname(__FILE__) . '/../../fcpayone.php';
+namespace Payone\Validation;
 
 use Payone\Base\Registry;
-
-$oModule = new FcPayone();
-
-if (\Tools::getValue('payone_secure_key') != $oModule->secure_key) {
-    echo \Tools::jsonEncode(array('errorMessages' => array('Secure key is not valid!')));
-    exit;
-}
 
 class ValidationAjax
 {
@@ -221,7 +212,8 @@ class ValidationAjax
     protected function validateOnlineTransfer()
     {
         $sPaymentId = $this->getPaymentId();
-        if ($sPaymentId == 'onlinetransfer_sofortbanking' || $sPaymentId == 'onlinetransfer_giropay') {
+        if ($sPaymentId == 'onlinetransfer_sofortbanking' || $sPaymentId == 'onlinetransfer_giropay' || $sPaymentId == 'onlinetransfer') {
+            error_log($sPaymentId);
             require_once dirname(__FILE__) . '/../Validation/Payment/Base.php';
             $oValidation = new \Payone\Validation\Payment\Base;
             $this->validateIban($oValidation);
@@ -229,7 +221,3 @@ class ValidationAjax
         }
     }
 }
-
-$oValidation = new \ValidationAjax();
-$oValidation->validate();
-exit;
