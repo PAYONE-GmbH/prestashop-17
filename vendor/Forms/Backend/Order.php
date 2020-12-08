@@ -48,6 +48,7 @@ class Order extends Base
         }
         $this->addTransactionList($oOrder->id);
         $this->addActionForms($oOrder, $aOrderData, $oPayment);
+        $this->getSmarty()->assign('isPrestaShop1770rHigher', Registry::getHelperPrestaShop()->isPrestaShop1770rHigher());
         $this->addLastRequest($aOrderData['txid']);
         $this->addLastRequestWithClearingData($aOrderData['txid']);
         if ($aOrderData['paymentid'] == 'debit') {

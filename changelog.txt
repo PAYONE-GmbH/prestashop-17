@@ -27,3 +27,10 @@
 
 - v2.0.5
     - Update creditcard processing / birthdate error
+
+- v2.0.6
+    - specific Ajax controller to prevent htaccess error
+    - updated licence headers
+
+- v2.0.7
+    - Adaptions PrestaShop 1.7.7.0

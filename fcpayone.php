@@ -36,7 +36,7 @@ class FcPayone extends \PaymentModule
     {
         $this->name = 'fcpayone';
         $this->tab = 'payments_gateways';
-        $this->version = '2.0.6';
+        $this->version = '2.0.7';
         if (!defined('_FCPAYONE_VERSION_')) {
             define('_FCPAYONE_VERSION_', $this->version);
         }
@@ -92,9 +92,9 @@ class FcPayone extends \PaymentModule
             $this->registerHook('header') &&
             $this->registerHook('paymentOptions') &&
             $this->registerHook('paymentReturn') &&
-            $this->registerHook('displayAdminOrderLeft') &&
             $this->registerHook('displayShoppingCart') &&
             $this->registerHook('displayPDFInvoice') &&
+            $this->installAdminOrderHook() &&
             $this->install16Hook() &&
             $this->fcPayoneCreateTables() &&
             $this->fcPayoneAddDefaultConfiguration();
@@ -107,6 +107,18 @@ class FcPayone extends \PaymentModule
                 $this->registerHook('displayPaymentEU');
         }
         return true;
+    }
+
+    /**
+     * Admin Hook depending on PS 1.7 Major version
+     */
+    protected function installAdminOrderHook()
+    {
+        if (\Payone\Base\Registry::getHelperPrestaShop()->isPrestaShop1770rHigher()) {
+            $this->registerHook('displayAdminOrderMainBottom');
+        } else {
+            $this->registerHook('displayAdminOrderLeft');
+        }
     }
 
     /**
@@ -380,7 +392,7 @@ class FcPayone extends \PaymentModule
     }
 
     /**
-     * Diaplay the payone panel in admin order area to change the status...
+     * Display the payone panel in admin order area to change the status...
      *
      * @param array $params
      * @return string
@@ -397,6 +409,22 @@ class FcPayone extends \PaymentModule
         $oOrderForm->setOrder($oOrder);
         $oOrderForm->setContext($this->context);
         return $oOrderForm->getForm();
+    }
+
+    /**
+     * @param $params
+     * @return string
+     * @throws PrestaShopDatabaseException
+     * @throws PrestaShopException
+     */
+    public function hookDisplayAdminOrderMainBottom($params)
+    {
+        if (!isset($params['order'])) {
+            if (isset($params['id_order'])) {
+                $params['order'] = new Order((int)$params['id_order']);
+            }
+        }
+        return $this->hookDisplayAdminOrderLeft($params);
     }
 
     /**

@@ -135,4 +135,13 @@ class HelperPrestashop
         }
         return null;
     }
+
+    /**
+     * @return bool
+     */
+    public function isPrestaShop1770rHigher()
+    {
+        return version_compare(_PS_VERSION_, '1.7.7', '>=');
+    }
+
 }

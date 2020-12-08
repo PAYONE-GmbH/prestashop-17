@@ -21,20 +21,14 @@
  * @link      http://www.payone.de
  */
 
-use Payone\Validation\ValidationAjax;
+if (!defined('_PS_VERSION_')) {
+    exit;
+}
 
-class FcPayoneAjaxModuleFrontController extends ModuleFrontController
+function upgrade_module_2_0_7($module)
 {
-
-    public function postProcess()
-    {
-        if (\Tools::getValue('payone_secure_key') != $this->module->secure_key) {
-            echo \Tools::jsonEncode(array('errorMessages' => array('Secure key is not valid!')));
-            exit;
-        }
-
-        $oValidation = new ValidationAjax();
-        $oValidation->validate();
-        exit;
+    if (version_compare(_PS_VERSION_, '1.7.7', '>=')) {
+        $module->registerHook('displayAdminOrderMainBottom');
     }
+    return true;
 }
