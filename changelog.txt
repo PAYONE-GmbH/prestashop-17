@@ -34,3 +34,6 @@
 
 - v2.0.7
     - Adaptions PrestaShop 1.7.7.0
+
+- v2.0.8
+    - Bugfix Install procedure (thx to @ptmrio)

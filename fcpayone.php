@@ -36,7 +36,7 @@ class FcPayone extends \PaymentModule
     {
         $this->name = 'fcpayone';
         $this->tab = 'payments_gateways';
-        $this->version = '2.0.7';
+        $this->version = '2.0.8';
         if (!defined('_FCPAYONE_VERSION_')) {
             define('_FCPAYONE_VERSION_', $this->version);
         }
@@ -115,9 +115,9 @@ class FcPayone extends \PaymentModule
     protected function installAdminOrderHook()
     {
         if (\Payone\Base\Registry::getHelperPrestaShop()->isPrestaShop1770rHigher()) {
-            $this->registerHook('displayAdminOrderMainBottom');
+            return $this->registerHook('displayAdminOrderMainBottom');
         } else {
-            $this->registerHook('displayAdminOrderLeft');
+            return $this->registerHook('displayAdminOrderLeft');
         }
     }
 
