@@ -61,4 +61,9 @@ class PayPal extends Wallet
      * @var boolean
      */
     protected $blIsRedirectPayment = true;
+    
+    public function getImage()
+    {
+        return 'paypal.png';
+    }
 }
