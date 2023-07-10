@@ -37,3 +37,6 @@
 
 - v2.0.8
     - Bugfix Install procedure (thx to @ptmrio)
+
+- v2.0.9
+    - Change narrative-text Paydirekt after fusion with Giropay

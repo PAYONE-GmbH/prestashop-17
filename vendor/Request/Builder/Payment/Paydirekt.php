@@ -32,7 +32,7 @@ class Paydirekt extends Base
     public function build()
     {
         parent::build();
-        $this->setParam('narrative_text', $this->getPayment()->getTitle());
+        $this->setParam('narrative_text', 'Giropay');
         $this->setUserToRequest();
         $this->setPaymentDataToRequest();
         $this->addRedirectParameters();
