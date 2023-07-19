@@ -2,7 +2,7 @@
 
 ## Please Note
 The development and support of the Plugin has been discontinued and is no longer actively maintained.
-This plugin is still in beta, so use at your own risk. We appreciate any support via comments or issues though, so feel free to contribute!
+This plugin is still in beta, so use at your own risk. ~~We appreciate any support via comments or issues though, so feel free to contribute!~~
 
 ## About BS PAYONE
 Since the end of August 2017, the two payment specialist companies PAYONE and B+S Card Service merged to become BS PAYONE GmbH. All current partnerships will be maintained the way they are. APIs, interfaces, and other technical parameters will stay the same. Your current contact persons will continue to gladly be at your service.<br>
