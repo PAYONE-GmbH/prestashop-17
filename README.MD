@@ -1,7 +1,7 @@
 # PAYMENT FOR YOUR PRESTASHOP 1.7
 
 ## Please Note
-
+The development and support of the Plugin has been discontinued and is no longer actively maintained.
 This plugin is still in beta, so use at your own risk. We appreciate any support via comments or issues though, so feel free to contribute!
 
 ## About BS PAYONE
